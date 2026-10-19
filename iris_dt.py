@@ -53,7 +53,7 @@ with mlflow.start_run():
     mlflow.log_artifact('confusion_matrix.png')
     mlflow.log_artifact(__file__)
 
-    mlflow.sklearn.log_model(dt, name='decision_tree')
+    mlflow.sklearn.log_model(dt, name='decision_tree', skops_trusted_types=["sklearn.tree._tree.Tree"])
 
     mlflow.set_tag('author', 'preeti')
     mlflow.set_tag('model', 'decision_tree')
